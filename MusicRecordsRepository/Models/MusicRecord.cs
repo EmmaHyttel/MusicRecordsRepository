@@ -43,7 +43,7 @@ public class MusicRecord
             throw new ArgumentNullException("Artist is null");
         }
 
-        if (Title.Length < 1)
+        if (Artist.Length < 1)
         {
             throw new ArgumentException("Artist must be at least 1 character: " + Artist);
         }
@@ -59,7 +59,7 @@ public class MusicRecord
 
     public void ValidatePublicationYear()
     {
-        if (PublicationYear < 1982 || PublicationYear > 2025)
+        if (PublicationYear < 1982 || PublicationYear > 2024)
             throw new ArgumentOutOfRangeException("Publication year must be 1982 or after: " + PublicationYear);
     }
 

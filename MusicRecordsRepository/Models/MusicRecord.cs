@@ -1,6 +1,6 @@
 ﻿namespace MusicRecordsRepository.Models;
 
-public class MusicRecords
+public class MusicRecord
 {
     public int Id { get; set; }
     public string Title { get; set; }
@@ -9,7 +9,7 @@ public class MusicRecords
     public int PublicationYear { get; set; }
     public string Genre { get; set; }
 
-    public MusicRecords(int id, string title, string artist, int duration, int publicationYear, string genre)
+    public MusicRecord(int id, string title, string artist, int duration, int publicationYear, string genre)
     {
         Id = id;
         Title = title;
@@ -19,7 +19,7 @@ public class MusicRecords
         Genre = genre;
     }
 
-    public MusicRecords()
+    public MusicRecord()
     {
     }
 
@@ -59,7 +59,7 @@ public class MusicRecords
 
     public void ValidatePublicationYear()
     {
-        if (PublicationYear < 1982)
+        if (PublicationYear < 1982 || PublicationYear > 2025)
             throw new ArgumentOutOfRangeException("Publication year must be 1982 or after: " + PublicationYear);
     }
 
@@ -90,7 +90,7 @@ public class MusicRecords
     // fx 
     public override bool Equals(object? obj)
     {
-        return obj is MusicRecords record &&
+        return obj is MusicRecord record &&
             Id == record.Id &&
             Title == record.Title &&
             Artist == record.Artist &&
